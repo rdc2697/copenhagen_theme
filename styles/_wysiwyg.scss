@@ -2,3 +2,9 @@
 #hc-wysiwyg {
   border: 1px solid $high-contrast-border-color;
 }
+.wysiwyg .custom-code-block {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+}
