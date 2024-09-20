@@ -405,23 +405,22 @@
       ]
     },
     {
+  {
   "label": "customize_articles_group_label",
   "variables": [
     {
       "identifier": "insert_code_block",
-      "type": "custom",
-      "control_type": "button",
+      "type": "text",
       "description": "Insert a code block in your article",
       "label": "Insert Code Block",
-      "action": "insertCodeBlock"
+      "value": "Click here to insert code block"
     },
     {
       "identifier": "insert_terminal_block",
-      "type": "custom",
-      "control_type": "button",
+      "type": "text",
       "description": "Insert a terminal block in your article",
       "label": "Insert Terminal Block",
-      "action": "insertTerminalBlock"
+      "value": "Click here to insert terminal block"
     }
   ]
 }
