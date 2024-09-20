@@ -409,18 +409,17 @@
       "variables": [
         {
           "identifier": "insert_code_block",
-          "type": "text",
+          "type": "button",
           "description": "Insert a code block in your article",
-          "label": "Insert Code Block",
-          "value": "Click here to insert code block"
+          "label": "Insert Code Block"
         },
         {
           "identifier": "insert_terminal_block",
-          "type": "text",
+          "type": "button",
           "description": "Insert a terminal block in your article",
-          "label": "Insert Terminal Block",
-          "value": "Click here to insert terminal block"
+          "label": "Insert Terminal Block"
         }
       ]
     }
-
+  ]
+}
