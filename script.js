@@ -624,73 +624,45 @@
     if (quickSearch) {
       quickSearch.addEventListener("keyup", (event) => {
         if (event.keyCode === ENTER) {
-          event.stopPropagation();
-          saveFocus();
-          quickSearch.form.submit();
+     // Function to insert a code block into the article
+function insertCodeBlock() {
+    const codeTemplate = `
+    <div class="custom-code-block">
+        // Start coding here
+        function example() {
+            console.log("Hello World!");
         }
-      });
-    }
+    </div>`;
+    
+    // Insert the code block into the article body (adjust the selector based on the actual DOM)
+    document.querySelector('.article-body').innerHTML += codeTemplate;
+}
 
-    // Submit organization form in the request page
-    const requestOrganisationSelect = document.querySelector(
-      "#request-organization select"
-    );
+// Function to insert a terminal block into the article
+function insertTerminalBlock() {
+    const terminalTemplate = `
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span class="terminal-icon">>_</span>
+            <span class="terminal-title">Terminal</span>
+            <button class="copy-btn">Copy</button>
+        </div>
+        <pre class="terminal-code">
+            console.log('This is a log message in the terminal');
+        </pre>
+    </div>`;
+    
+    // Insert the terminal block into the article body (adjust the selector based on the actual DOM)
+    document.querySelector('.article-body').innerHTML += terminalTemplate;
+}
 
-    if (requestOrganisationSelect) {
-      requestOrganisationSelect.addEventListener("change", () => {
-        requestOrganisationSelect.form.submit();
-      });
-
-      requestOrganisationSelect.addEventListener("click", (e) => {
-        // Prevents Ticket details collapsible-sidebar to close on mobile
-        e.stopPropagation();
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-    // Function to insert a code block template
-    document.querySelector('.insert-code-block').addEventListener('click', function () {
-        const codeBlockTemplate = `
-        <pre class="custom-code-block">
-            <code>
-                // Your code here
-                function example() {
-                    console.log("Hello World!");
-                }
-            </code>
-        </pre>`;
-        document.querySelector('.article-content').insertAdjacentHTML('beforeend', codeBlockTemplate);
-    });
-
-    // Function to insert a terminal block template
-    document.querySelector('.insert-terminal-block').addEventListener('click', function () {
-        const terminalBlockTemplate = `
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <span class="terminal-icon">>_</span> 
-                <span class="terminal-title">Terminal</span>
-                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
-            </div>
-            <pre class="terminal-code">
-                <code>
-                    console.log('This is a log message in the terminal');
-                </code>
-            </pre>
-        </div>`;
-        document.querySelector('.article-content').insertAdjacentHTML('beforeend', terminalBlockTemplate);
-    });
-
-    // Function to handle "Copy to Clipboard" functionality
-    window.copyToClipboard = function (button) {
-        const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
-        const text = codeBlock.innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            button.textContent = 'Copied';
-            setTimeout(() => {
-                button.textContent = 'Copy';
-            }, 2000);
-        });
-    };
+// Add event listeners for the buttons
+document.addEventListener('DOMContentLoaded', function() {
+    // Code block button click handler
+    document.getElementById('insert-code-block').addEventListener('click', insertCodeBlock);
+    
+    // Terminal block button click handler
+    document.getElementById('insert-terminal-block').addEventListener('click', insertTerminalBlock);
 });
     
     // If there are any error notifications below an input field, focus that field
