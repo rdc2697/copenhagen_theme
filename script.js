@@ -647,6 +647,52 @@
       });
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+    // Function to insert a code block template
+    document.querySelector('.insert-code-block').addEventListener('click', function () {
+        const codeBlockTemplate = `
+        <pre class="custom-code-block">
+            <code>
+                // Your code here
+                function example() {
+                    console.log("Hello World!");
+                }
+            </code>
+        </pre>`;
+        document.querySelector('.article-content').insertAdjacentHTML('beforeend', codeBlockTemplate);
+    });
+
+    // Function to insert a terminal block template
+    document.querySelector('.insert-terminal-block').addEventListener('click', function () {
+        const terminalBlockTemplate = `
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span class="terminal-icon">>_</span> 
+                <span class="terminal-title">Terminal</span>
+                <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            </div>
+            <pre class="terminal-code">
+                <code>
+                    console.log('This is a log message in the terminal');
+                </code>
+            </pre>
+        </div>`;
+        document.querySelector('.article-content').insertAdjacentHTML('beforeend', terminalBlockTemplate);
+    });
+
+    // Function to handle "Copy to Clipboard" functionality
+    window.copyToClipboard = function (button) {
+        const codeBlock = button.parentElement.nextElementSibling.querySelector('code');
+        const text = codeBlock.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            button.textContent = 'Copied';
+            setTimeout(() => {
+                button.textContent = 'Copy';
+            }, 2000);
+        });
+    };
+});
+    
     // If there are any error notifications below an input field, focus that field
     const notificationElm = document.querySelector(".notification-error");
     if (
