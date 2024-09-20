@@ -405,21 +405,21 @@
       ]
     },
     {
-  "label": "customize_articles_group_label",
-  "variables": [
-    {
-      "identifier": "insert_code_block",
-      "type": "button",
-      "description": "Insert a code block in your article",
-      "label": "Insert Code Block"
-    },
-    {
-      "identifier": "insert_terminal_block",
-      "type": "button",
-      "description": "Insert a terminal block in your article",
-      "label": "Insert Terminal Block"
+      "label": "customize_articles_group_label",
+      "variables": [
+        {
+          "identifier": "insert_code_block",
+          "type": "button",
+          "description": "Insert a code block in your article",
+          "label": "Insert Code Block"
+        },
+        {
+          "identifier": "insert_terminal_block",
+          "type": "button",
+          "description": "Insert a terminal block in your article",
+          "label": "Insert Terminal Block"
+        }
+      ]
     }
-  ]
-}
   ]
 }
